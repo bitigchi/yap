@@ -47,3 +47,10 @@ will purge everything.
 
 Using the `-s/--silent` flag with `cm` and `purge` command will not display an entry
 with all the items iterated. Instead, only one entry with a summary will be displayed.
+
+## Application data
+
+yap saves to-do data at following locations:
+
+* macOS: ~/Library/Application Support/
+* Linux: ~/.local/share/
