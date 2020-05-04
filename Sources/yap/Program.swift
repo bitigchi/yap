@@ -180,7 +180,5 @@ final class Program {
         guard number <= todoList.count || number == 0 else {
             throw ValidationError.notValid
         }
-    }
-    
-    func arrayInputNotAccepted(
+    }    
 }

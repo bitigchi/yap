@@ -26,12 +26,12 @@ This will build and install `yap` in your home directory. Alternatively, you can
 ## Known issues
 
 * Only works on macOS at the moment.
+* It might be necessary to manually import to-do items after an update until v1.0
 
 ## Roadmap
 
 ### Short-term
 
-* Support removing individual items
 * Automatic export of items
 * Add due dates, etc.
 * Add unit tests
