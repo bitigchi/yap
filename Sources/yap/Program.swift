@@ -119,6 +119,16 @@ final class Program {
                 comment: "Confirmation message"))
     }
     
+    func removeItem(_ number: Int, _ silent: Bool) {
+        todoList.remove(at: number - 1)
+        writeTodoList(todoList)
+        if !silent {
+            consoleIO.writeMessage(NSLocalizedString(
+                "Removed: \(todoList[number - 1].name)",
+                comment: "Confirmation message"))
+        }
+    }
+    
     
     // MARK: Validation Functions
     func alreadyInList(_ todoItem: TodoItem) throws {
@@ -171,4 +181,6 @@ final class Program {
             throw ValidationError.notValid
         }
     }
+    
+    func arrayInputNotAccepted(
 }

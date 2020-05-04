@@ -17,5 +17,6 @@ struct Yap: ParsableCommand {
         subcommands: [Add.self,
                       Complete.self,
                       List.self,
-                      Purge.self,])
+                      Purge.self,
+                      Remove.self])
 }
