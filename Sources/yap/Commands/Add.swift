@@ -11,7 +11,7 @@ struct Add: ParsableCommand {
         commandName: NSLocalizedString(
             "add", comment: "Add command"),
         abstract: NSLocalizedString(
-            "Add item to the list.", comment: "Add command description"),
+            "Add item to the list.", comment: "Command description"),
         shouldDisplay: true)
     
     

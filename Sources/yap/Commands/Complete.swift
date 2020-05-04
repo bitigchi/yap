@@ -11,7 +11,7 @@ struct Complete: ParsableCommand {
         commandName: NSLocalizedString(
             "cm", comment: "Complete command"),
         abstract: NSLocalizedString(
-            "Mark item(s) as complete.", comment: "Complete command description"),
+            "Mark item(s) as complete.", comment: "Command description"),
         shouldDisplay: true)
     
 

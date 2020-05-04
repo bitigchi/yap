@@ -1,7 +1,8 @@
 # yap
 
-yap is a simple to-do list written in Swift. It allows you to add to-do items, mark them as
-"complete", list both completed and pending items, and purge both lists.
+yap (pronounced y-ah-p) is a simple to-do list written in Swift. It allows you to add to-do 
+items, mark them as "complete", list both completed and pending items, and purge both 
+lists.
 
 ![Main](.github/main.png)
 
