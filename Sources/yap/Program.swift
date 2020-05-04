@@ -56,8 +56,8 @@ final class Program {
                                 comment: "Confirmation message"))
                         }
                     } else {
-                        todoList[index].modifyDate = Date()
                         todoList[index].complete = true
+                        todoList[index].modifyDate = Date()
                         writeTodoList(todoList)
                         if !silent {
                             consoleIO.writeMessage(NSLocalizedString(

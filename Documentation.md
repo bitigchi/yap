@@ -12,7 +12,7 @@ If you prefer to use `stdin`, that's available as well.
 
 `yap add`<Enter>
 
-This will enter stdin mode. When you're done, just press <Enter>.
+This will enter stdin mode. When you're done, just press Enter.
 
 ## Listing to-do items
 

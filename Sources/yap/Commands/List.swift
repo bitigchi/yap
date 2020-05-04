@@ -49,6 +49,7 @@ struct List: ParsableCommand {
             consoleIO.writeMessage(pendingHeader)
             program.list(complete: false, date)
         } else {
+            try program.checkEmptyRemainingList()
             consoleIO.writeMessage(pendingHeader)
             program.list(complete: false, date)
         }
