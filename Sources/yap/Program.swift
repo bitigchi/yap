@@ -36,10 +36,24 @@ final class Program {
         do {
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
+            if #available(OSX 10.12, *) {
+                encoder.dateEncodingStrategy = .iso8601
+            }
             try encoder.encode(todoList).write(to: fileURL)
         } catch {
             fatalError("Error: \(error.localizedDescription)")
         }
+    }
+    
+    func dateParser(_ date: String) -> Date {
+        var finalDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.locale = Locale.current
+        if let dateFormat = dateFormatter.date(from: date) {
+            finalDate = dateFormat
+        }
+        return finalDate
     }
     
     func markAsComplete(_ numbers: [Int], _ pending: Bool, _ silent: Bool) {
@@ -48,7 +62,7 @@ final class Program {
                 if number == index + 1 {
                     if pending {
                         todoList[index].complete = false
-                        todoList[index].modifyDate = Date()
+                        todoList[index].dueDate = Date()
                         writeTodoList(todoList)
                         if !silent {
                             consoleIO.writeMessage(NSLocalizedString(
@@ -57,7 +71,7 @@ final class Program {
                         }
                     } else {
                         todoList[index].complete = true
-                        todoList[index].modifyDate = Date()
+                        todoList[index].dueDate = Date()
                         writeTodoList(todoList)
                         if !silent {
                             consoleIO.writeMessage(NSLocalizedString(
@@ -75,13 +89,17 @@ final class Program {
     
     func list(complete: Bool, _ date: Bool) {
         for (index, todo) in todoList.enumerated() {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            let addDate = formatter.string(from: todo.addDate)
+            
             if todoList[index].complete == complete {
                 if !date {
                     consoleIO.writeMessage(
                         "\(index + 1)" + " - " + "\(todo.name)")
                 } else {
                     consoleIO.writeMessage(
-                        "\(index + 1)" + " -" + "\(todo.addDate)" + "- "
+                        "\(index + 1)" + " -" + "\(addDate)" + "- "
                         + "\(todo.name)")
                 }
             }

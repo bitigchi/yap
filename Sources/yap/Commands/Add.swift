@@ -19,18 +19,17 @@ struct Add: ParsableCommand {
             "To-do text.", comment: "Help text")))
     private var item: String?
     
+    @Argument(help: ArgumentHelp(NSLocalizedString(
+            "To-do text.", comment: "Help text")))
+    private var due: String?
+    
     
     func run() throws {
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        let addDate = formatter.string(from: date)
-        
         let todoItem = TodoItem(
             name: item ?? "\(readLine() ?? "")",
             complete: false,
-            addDate: addDate,
-            modifyDate: Date())
+            addDate: program.dateParser(""),
+            dueDate: program.dateParser(due ?? ""))
         
         try program.alreadyInList(todoItem)
         try program.emptyTodo(todoItem)
