@@ -8,11 +8,9 @@ lists. yap is available on Linux and macOS.
 
 ## Installation
 
-Go to the Releases page and get the binary. If you have Swift 5.2 installed, you can also
-build/install it yourself with the instructions below:
+Go to the Releases page and get the source code.
 
 * Make sure you have $HOME in your $PATH
-* Clone/download the repository
 * Run `make install` inside the project directory
 
 This will build and install `yap` in your home directory. Alternatively, you can run
