@@ -7,7 +7,7 @@ REPODIR = $(shell pwd)
 BUILDDIR = $(REPODIR)/.build
 RELEASEDIR = $(BUILDDIR)/release/$(PROJECT)
 SOURCES = $(wildcard $(srcdir)/**/*.swift)
-VERSION = 0.2.1
+VERSION = 0.2.2
 
 yap: $(SOURCES)
 	@echo "Building Swift package..."
