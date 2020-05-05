@@ -11,7 +11,7 @@ struct List: ParsableCommand {
         commandName: NSLocalizedString(
             "list", comment: "List command"),
         abstract: NSLocalizedString(
-            "List items.", comment: "Command description"),
+            "List items.", comment: "List command description"),
         shouldDisplay: true)
     
     

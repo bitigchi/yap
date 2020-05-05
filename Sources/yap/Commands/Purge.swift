@@ -12,7 +12,7 @@ struct Purge: ParsableCommand {
             "purge", comment: "Purge command"),
         abstract: NSLocalizedString(
             "Purge items from the list.",
-            comment: "Command description"),
+            comment: "Purge command description"),
         shouldDisplay: true)
     
     

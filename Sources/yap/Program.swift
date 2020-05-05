@@ -37,8 +37,8 @@ final class Program {
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
             if #available(OSX 10.12, *) {
-                encoder.dateEncodingStrategy = .iso8601
-            }
+                 encoder.dateEncodingStrategy = .iso8601
+             }
             try encoder.encode(todoList).write(to: fileURL)
         } catch {
             fatalError("Error: \(error.localizedDescription)")
@@ -46,15 +46,15 @@ final class Program {
     }
     
     func dateParser(_ date: String) -> Date {
-        var finalDate = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.locale = Locale.current
-        if let dateFormat = dateFormatter.date(from: date) {
-            finalDate = dateFormat
-        }
-        return finalDate
-    }
+         var finalDate = Date()
+         let dateFormatter = DateFormatter()
+         dateFormatter.dateStyle = .short
+         dateFormatter.locale = Locale.current
+         if let dateFormat = dateFormatter.date(from: date) {
+             finalDate = dateFormat
+         }
+         return finalDate
+     }
     
     func markAsComplete(_ numbers: [Int], _ pending: Bool, _ silent: Bool) {
         for (index, todo) in todoList.enumerated() {
@@ -62,7 +62,6 @@ final class Program {
                 if number == index + 1 {
                     if pending {
                         todoList[index].complete = false
-                        todoList[index].dueDate = Date()
                         writeTodoList(todoList)
                         if !silent {
                             consoleIO.writeMessage(NSLocalizedString(
@@ -71,7 +70,6 @@ final class Program {
                         }
                     } else {
                         todoList[index].complete = true
-                        todoList[index].dueDate = Date()
                         writeTodoList(todoList)
                         if !silent {
                             consoleIO.writeMessage(NSLocalizedString(
@@ -89,17 +87,13 @@ final class Program {
     
     func list(complete: Bool, _ date: Bool) {
         for (index, todo) in todoList.enumerated() {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .short
-            let addDate = formatter.string(from: todo.addDate)
-            
             if todoList[index].complete == complete {
                 if !date {
                     consoleIO.writeMessage(
                         "\(index + 1)" + " - " + "\(todo.name)")
                 } else {
                     consoleIO.writeMessage(
-                        "\(index + 1)" + " -" + "\(addDate)" + "- "
+                        "\(index + 1)" + " -" + "\(todo.addDate)" + "- "
                         + "\(todo.name)")
                 }
             }
@@ -138,14 +132,14 @@ final class Program {
     }
     
     func removeItem(_ number: Int, _ silent: Bool) {
-        todoList.remove(at: number - 1)
-        writeTodoList(todoList)
-        if !silent {
-            consoleIO.writeMessage(NSLocalizedString(
-                "Removed: \(todoList[number - 1].name)",
-                comment: "Confirmation message"))
-        }
-    }
+         todoList.remove(at: number - 1)
+         writeTodoList(todoList)
+         if !silent {
+             consoleIO.writeMessage(NSLocalizedString(
+                 "Removed: \(todoList[number - 1].name)",
+                 comment: "Confirmation message"))
+         }
+     }
     
     
     // MARK: Validation Functions
@@ -198,5 +192,5 @@ final class Program {
         guard number <= todoList.count || number == 0 else {
             throw ValidationError.notValid
         }
-    }    
+    }
 }

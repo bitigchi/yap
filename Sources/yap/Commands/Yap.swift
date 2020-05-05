@@ -12,10 +12,11 @@ struct Yap: ParsableCommand {
         abstract: NSLocalizedString(
             "Simple to-do list", comment: "Program description"),
         version: "yap, " +
-            NSLocalizedString("version ", comment: "Version info") + "0.2.1",
+            NSLocalizedString("version ", comment: "Version info") + "0.1",
         shouldDisplay: true,
         subcommands: [Add.self,
                       Complete.self,
+                      Due.self,
                       List.self,
                       Purge.self,
                       Remove.self])
