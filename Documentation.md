@@ -14,6 +14,20 @@ If you prefer to use `stdin`, that's available as well.
 
 This will enter stdin mode. When you're done, just press Enter.
 
+## Setting due dates
+
+Easiest way to set a due date is doing it while adding the to-do. Just use:
+
+`yap add <item> <due-date>`.
+
+`<due-date>` will accept dates in your current locale. You can also use predefined
+dates, like:
+
+* `yap add <item> [tomorrow, nextweek, nextmonth, nextyear]`
+
+Select one from the predefined dates, it will set the due date by adding a week, month,
+or year to the current date.
+
 ## Listing to-do items
 
 `yap` displays remaining to-do with item due date `yap` will assume the due date is
