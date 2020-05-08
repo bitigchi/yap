@@ -21,14 +21,14 @@ struct Add: ParsableCommand {
     
     @Argument(help: ArgumentHelp(NSLocalizedString(
              "Due date.", comment: "Help text")))
-     private var due: String?
+     private var dueDate: String?
     
     
     func run() throws {
         let todoItem = TodoItem(
             name: item ?? "\(readLine() ?? "")",
             complete: false,
-            dueDate: program.dateParser(due ?? ""))
+            dueDate: program.dateParser(dueDate ?? ""))
         
         try program.alreadyInList(todoItem)
         try program.emptyTodo(todoItem)
