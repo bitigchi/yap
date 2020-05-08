@@ -31,7 +31,7 @@ struct Due: ParsableCommand {
     func run() throws {
         try program.verifyFileExists()
         try program.checkEmptyList()
-        
+        try program.checkEmptyRemainingList()
         program.markDue(number, dateStr, silent)
     }
 }
