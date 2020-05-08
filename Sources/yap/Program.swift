@@ -23,6 +23,7 @@ final class Program {
                 .appendingPathComponent("yap.json")
             let data = try Data(contentsOf: fileURL)
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .millisecondsSince1970
             let items = try decoder.decode([TodoItem].self, from: data)
             return items
         } catch {
@@ -36,9 +37,7 @@ final class Program {
         do {
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
-            if #available(OSX 10.12, *) {
-                 encoder.dateEncodingStrategy = .iso8601
-             }
+            encoder.dateEncodingStrategy = .millisecondsSince1970
             try encoder.encode(todoList).write(to: fileURL)
         } catch {
             fatalError("Error: \(error.localizedDescription)")
@@ -85,15 +84,18 @@ final class Program {
             comment: "Confirmation message"))
     }
     
-    func list(complete: Bool, _ date: Bool) {
+    func list(complete: Bool, _ hideDate: Bool) {
         for (index, todo) in todoList.enumerated() {
             if todoList[index].complete == complete {
-                if !date {
+                if hideDate {
                     consoleIO.writeMessage(
                         "\(index + 1)" + " - " + "\(todo.name)")
                 } else {
+                    let formatter = DateFormatter()
+                    formatter.dateStyle = .short
+                    let dueDate = formatter.string(from: todo.dueDate)
                     consoleIO.writeMessage(
-                        "\(index + 1)" + " -" + "\(todo.addDate)" + "- "
+                        "\(index + 1)" + " -" + "\(dueDate)" + "- "
                         + "\(todo.name)")
                 }
             }
@@ -132,14 +134,18 @@ final class Program {
     }
     
     func removeItem(_ number: Int, _ silent: Bool) {
-         todoList.remove(at: number - 1)
-         writeTodoList(todoList)
-         if !silent {
-             consoleIO.writeMessage(NSLocalizedString(
-                 "Removed: \(todoList[number - 1].name)",
-                 comment: "Confirmation message"))
-         }
-     }
+        var removedItemArray = [TodoItem]()
+        removedItemArray.append(todoList[number - 1])
+        
+        todoList.remove(at: number - 1)
+        writeTodoList(todoList)
+        if !silent {
+            consoleIO.writeMessage(NSLocalizedString(
+                "Removed: \(removedItemArray[0].name)",
+                comment: "Confirmation message"))
+        }
+        removedItemArray.removeAll()
+    }
     
     
     // MARK: Validation Functions

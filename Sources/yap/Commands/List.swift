@@ -24,8 +24,8 @@ struct List: ParsableCommand {
     private var all: Bool
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
-        "Show the creation date.", comment: "Argument help")))
-    private var date: Bool
+        "Hide due date.", comment: "Argument help")))
+    private var noDate: Bool
     
     
     func run() throws {
@@ -42,16 +42,16 @@ struct List: ParsableCommand {
         if complete {
             try program.checkEmptyCompleteList()
             consoleIO.writeMessage(completeHeader)
-            program.list(complete: true, date)
+            program.list(complete: true, noDate)
         } else if all {
             consoleIO.writeMessage(completeHeader)
-            program.list(complete: true, date)
+            program.list(complete: true, noDate)
             consoleIO.writeMessage(pendingHeader)
-            program.list(complete: false, date)
+            program.list(complete: false, noDate)
         } else {
             try program.checkEmptyRemainingList()
             consoleIO.writeMessage(pendingHeader)
-            program.list(complete: false, date)
+            program.list(complete: false, noDate)
         }
     }
 }
