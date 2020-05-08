@@ -56,7 +56,7 @@ final class Program {
         let nextWeek = DateComponents(
             year: now.year, month: now.month, day: now.day! + 7)
         let nextMonth = DateComponents(
-            year: now.year, month: now.month! + 30, day: now.day)
+            year: now.year, month: now.month! + 1, day: now.day)
         let nextYear = DateComponents(
             year: now.year! + 1, month: now.month, day: now.day)
         
@@ -134,20 +134,25 @@ final class Program {
             comment: "Confirmation message"))
     }
     
-    func list(complete: Bool, _ hideDate: Bool) {
+    func list(complete: Bool, _ noDate: Bool) {
         for (index, todo) in todoList.enumerated() {
-            if todoList[index].complete == complete {
-                if hideDate {
-                    consoleIO.writeMessage(
-                        "\(index + 1)" + " - " + "\(todo.name)")
+            
+            func printItem() {
+                let formatter = DateFormatter()
+                formatter.dateStyle = .short
+                let dueDate = formatter.string(from: todo.dueDate)
+                let item = "\(index + 1)" + " - " + "\(todo.name)"
+                let itemWDate = "\(index + 1)" + " -" + "\(dueDate)" + "- " + "\(todo.name)"
+                
+                if noDate {
+                    consoleIO.writeMessage(item)
                 } else {
-                    let formatter = DateFormatter()
-                    formatter.dateStyle = .short
-                    let dueDate = formatter.string(from: todo.dueDate)
-                    consoleIO.writeMessage(
-                        "\(index + 1)" + " -" + "\(dueDate)" + "- "
-                        + "\(todo.name)")
+                    consoleIO.writeMessage(itemWDate)
                 }
+            }
+            
+            if todoList[index].complete == complete {
+                printItem()
             }
         }
     }

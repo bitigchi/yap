@@ -26,7 +26,7 @@ struct List: ParsableCommand {
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
         "Hide due date.", comment: "Argument help")))
     private var noDate: Bool
-    
+
     
     func run() throws {
         let completeHeader = "\n" + NSLocalizedString(
