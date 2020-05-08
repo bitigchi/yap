@@ -1,8 +1,8 @@
 # yap
 
 yap (pronounced y-ah-p) is a simple to-do list written in Swift. It allows you to add to-do 
-items, mark them as "complete", list both completed and pending items, and purge both 
-lists. yap is available on Linux and macOS.
+items, mark them as "complete", set due dates, remove items, and purge entries. yap is 
+available on Linux and macOS.
 
 ![Main](.github/main.png)
 
@@ -30,7 +30,6 @@ This will build and install `yap` in your home directory. Alternatively, you can
 ### Short-term
 
 * Automatic export of items
-* Add due dates, etc.
 * Add unit tests
 * Support localisations
 
