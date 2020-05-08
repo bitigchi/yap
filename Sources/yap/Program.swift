@@ -23,6 +23,7 @@ final class Program {
                 .appendingPathComponent("yap.json")
             let data = try Data(contentsOf: fileURL)
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .millisecondsSince1970
             let items = try decoder.decode([TodoItem].self, from: data)
             return items
         } catch {
@@ -31,14 +32,12 @@ final class Program {
     }()
     
     
-    // MARK: Operation Functions
+    // MARK: Operation Methods
     func writeTodoList(_ todoList: [TodoItem]) {
         do {
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
-            if #available(OSX 10.12, *) {
-                 encoder.dateEncodingStrategy = .iso8601
-             }
+            encoder.dateEncodingStrategy = .millisecondsSince1970
             try encoder.encode(todoList).write(to: fileURL)
         } catch {
             fatalError("Error: \(error.localizedDescription)")
@@ -46,15 +45,65 @@ final class Program {
     }
     
     func dateParser(_ date: String) -> Date {
-         var finalDate = Date()
-         let dateFormatter = DateFormatter()
-         dateFormatter.dateStyle = .short
-         dateFormatter.locale = Locale.current
-         if let dateFormat = dateFormatter.date(from: date) {
+        var finalDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.locale = Locale.current
+                
+        let now = Calendar.current.dateComponents(in: .current, from: Date())
+        let tomorrow = DateComponents(
+            year: now.year, month: now.month, day: now.day! + 1)
+        let nextWeek = DateComponents(
+            year: now.year, month: now.month, day: now.day! + 7)
+        let nextMonth = DateComponents(
+            year: now.year, month: now.month! + 1, day: now.day)
+        let nextYear = DateComponents(
+            year: now.year! + 1, month: now.month, day: now.day)
+        
+        var dateLine = ""
+        
+        if date == "tomorrow" {
+            let tomorrowDate = Calendar.current.date(from: tomorrow)!
+            dateLine = dateFormatter.string(from: tomorrowDate)
+        } else if date == "nextweek" {
+            let nextWeekDate = Calendar.current.date(from: nextWeek)!
+            dateLine = dateFormatter.string(from: nextWeekDate)
+        } else if date == "nextmonth" {
+            let nextMonthDate = Calendar.current.date(from: nextMonth)!
+            dateLine = dateFormatter.string(from: nextMonthDate)
+        } else if date == "nextyear" {
+            let nextYearDate = Calendar.current.date(from: nextYear)!
+            dateLine = dateFormatter.string(from: nextYearDate)
+        } else {
+            dateLine = date
+        }
+        
+         if let dateFormat = dateFormatter.date(from: dateLine) {
              finalDate = dateFormat
          }
          return finalDate
      }
+    
+    func markDue(_ number: Int, _ dateStr: String, _ silent: Bool) {
+        for (index, todo) in todoList.enumerated() {
+            if number == index + 1 {
+                let dueDate = dateParser(dateStr)
+                todoList[index].dueDate = dueDate
+                writeTodoList(todoList)
+                if !silent {
+                    let formatter = DateFormatter()
+                    formatter.dateStyle = .short
+                    consoleIO.writeMessage(NSLocalizedString(
+                        """
+                        Due date set to \(formatter.string(
+                        from: dueDate)),
+                        for: \(todo.name)
+                        """,
+                        comment: "Confirmation message"))
+                }
+            }
+        }
+    }
     
     func markAsComplete(_ numbers: [Int], _ pending: Bool, _ silent: Bool) {
         for (index, todo) in todoList.enumerated() {
@@ -85,17 +134,25 @@ final class Program {
             comment: "Confirmation message"))
     }
     
-    func list(complete: Bool, _ date: Bool) {
+    func list(complete: Bool, _ noDate: Bool) {
         for (index, todo) in todoList.enumerated() {
-            if todoList[index].complete == complete {
-                if !date {
-                    consoleIO.writeMessage(
-                        "\(index + 1)" + " - " + "\(todo.name)")
+            
+            func printItem() {
+                let formatter = DateFormatter()
+                formatter.dateStyle = .short
+                let dueDate = formatter.string(from: todo.dueDate)
+                let item = "\(index + 1)" + " - " + "\(todo.name)"
+                let itemWDate = "\(index + 1)" + " -" + "\(dueDate)" + "- " + "\(todo.name)"
+                
+                if noDate {
+                    consoleIO.writeMessage(item)
                 } else {
-                    consoleIO.writeMessage(
-                        "\(index + 1)" + " -" + "\(todo.addDate)" + "- "
-                        + "\(todo.name)")
+                    consoleIO.writeMessage(itemWDate)
                 }
+            }
+            
+            if todoList[index].complete == complete {
+                printItem()
             }
         }
     }
@@ -132,17 +189,21 @@ final class Program {
     }
     
     func removeItem(_ number: Int, _ silent: Bool) {
-         todoList.remove(at: number - 1)
-         writeTodoList(todoList)
-         if !silent {
-             consoleIO.writeMessage(NSLocalizedString(
-                 "Removed: \(todoList[number - 1].name)",
-                 comment: "Confirmation message"))
-         }
-     }
+        var removedItemArray = [TodoItem]()
+        removedItemArray.append(todoList[number - 1])
+        
+        todoList.remove(at: number - 1)
+        writeTodoList(todoList)
+        if !silent {
+            consoleIO.writeMessage(NSLocalizedString(
+                "Removed: \(removedItemArray[0].name)",
+                comment: "Confirmation message"))
+        }
+        removedItemArray.removeAll()
+    }
     
     
-    // MARK: Validation Functions
+    // MARK: Validation Methods
     func alreadyInList(_ todoItem: TodoItem) throws {
         guard todoList.contains(
             where: { $0.name == (todoItem.name) }) == false else {

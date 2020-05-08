@@ -17,7 +17,7 @@ struct Due: ParsableCommand {
     
     @Argument(help: ArgumentHelp(NSLocalizedString(
         "To-do item number.", comment: "Help text")))
-    private var numbers: [Int]
+    private var number: Int
     
     @Argument(help: ArgumentHelp(NSLocalizedString(
         "Due date.", comment: "Help text")))
@@ -29,13 +29,9 @@ struct Due: ParsableCommand {
     
     
     func run() throws {
-        
+        try program.verifyFileExists()
+        try program.checkEmptyList()
+        try program.checkEmptyRemainingList()
+        program.markDue(number, dateStr, silent)
     }
 }
-
-// yap due 1 today
-// yap due 2 tomorrow
-// yap due 3 nextweek
-// yap due 4 nextmonth
-// yap due 5 nextyear
-// yap due 6 15.03.2020

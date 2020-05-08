@@ -9,10 +9,9 @@ struct TodoItem: Codable, Equatable {
     let id = UUID()
     var name: String
     var complete: Bool
-    var addDate: String
-    var modifyDate: Date
+    var dueDate: Date
 
     enum CodingKeys: String, CodingKey {
-        case id, name, complete, addDate, modifyDate
+        case id, name, complete, dueDate
     }
 }
