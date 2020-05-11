@@ -142,7 +142,8 @@ final class Program {
                 formatter.dateStyle = .short
                 let dueDate = formatter.string(from: todo.dueDate)
                 let item = "\(index + 1)" + " - " + "\(todo.name)"
-                let itemWDate = "\(index + 1)" + " -" + "\(dueDate)" + "- " + "\(todo.name)"
+                let itemWDate = "\(index + 1)" + " -" + "\(dueDate)" + "- "
+                    + "\(todo.name)"
                 
                 if noDate {
                     consoleIO.writeMessage(item)

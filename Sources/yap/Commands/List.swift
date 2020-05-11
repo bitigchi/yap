@@ -9,7 +9,7 @@ import Foundation
 struct List: ParsableCommand {
     static let configuration: CommandConfiguration = .init(
         commandName: NSLocalizedString(
-            "list", comment: "List command"),
+            "ls", comment: "List command"),
         abstract: NSLocalizedString(
             "List items.", comment: "List command description"),
         shouldDisplay: true)
