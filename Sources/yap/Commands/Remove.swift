@@ -8,28 +8,25 @@ import Foundation
 
 struct Remove: ParsableCommand {
     static let configuration: CommandConfiguration = .init(
-        commandName: NSLocalizedString(
-            "rm",
-            bundle: .module,
-            comment: "Remove command"),
+        commandName: "rm",
         abstract: NSLocalizedString(
             "Remove individual items.",
-            bundle: .module,
+            bundle:program.bundle ?? .module,
             comment: "Command description"),
         shouldDisplay: true)
     
     
     @Argument(help: ArgumentHelp(NSLocalizedString(
-                                    "To-do item number",
-                                    bundle: .module,
+                                    "To-do item number.",
+                                    bundle:program.bundle ?? .module,
                                     comment: "Help text")))
     private var number: Int
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
                                                     "Show less detail.",
-                                                    bundle: .module,
+                                                    bundle:program.bundle ?? .module,
                                                     comment: "Argument help")))
-    var silent: Bool
+    var silent = false
     
 
     func run() throws {

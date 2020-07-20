@@ -11,11 +11,11 @@ struct Yap: ParsableCommand {
         commandName: "yap",
         abstract: NSLocalizedString(
             "Simple to-do list",
-            bundle: .module,
+            bundle: program.bundle ?? .module,
             comment: "Program description"),
         version: "yap, " +
             NSLocalizedString("version ",
-                              bundle: .module,
+                              bundle:program.bundle ?? .module,
                               comment: "Version info") + "0.3",
         shouldDisplay: true,
         subcommands: [Add.self,

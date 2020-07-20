@@ -8,34 +8,31 @@ import Foundation
 
 struct Due: ParsableCommand {
     static let configuration: CommandConfiguration = .init(
-        commandName: NSLocalizedString(
-            "due",
-            bundle: .module,
-            comment: "Due command"),
+        commandName: "due",
         abstract: NSLocalizedString(
             "Add due dates.",
-            bundle: .module,
+            bundle:program.bundle ?? .module,
             comment: "Command description"),
         shouldDisplay: true)
     
     
     @Argument(help: ArgumentHelp(NSLocalizedString(
                                     "To-do item number.",
-                                    bundle: .module,
+                                    bundle:program.bundle ?? .module,
                                     comment: "Help text")))
     private var number: Int
     
     @Argument(help: ArgumentHelp(NSLocalizedString(
                                     "Due date.",
-                                    bundle: .module,
+                                    bundle:program.bundle ?? .module,
                                     comment: "Help text")))
     private var dateStr: String
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
                                                     "Show less detail.",
-                                                    bundle: .module,
+                                                    bundle:program.bundle ?? .module,
                                                     comment: "Argument help")))
-    private var silent: Bool
+    private var silent = false
     
     
     func run() throws {

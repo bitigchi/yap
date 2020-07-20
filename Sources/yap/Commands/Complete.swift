@@ -8,34 +8,31 @@ import Foundation
 
 struct Complete: ParsableCommand {
     static let configuration: CommandConfiguration = .init(
-        commandName: NSLocalizedString(
-            "cm",
-            bundle: .module,
-            comment: "Complete command"),
+        commandName: "cm",
         abstract: NSLocalizedString(
-            "Mark item(s) as complete.",
-            bundle: .module,
+            "Mark item as complete.",
+            bundle:program.bundle ?? .module,
             comment: "Complete command description"),
         shouldDisplay: true)
     
 
     @Argument(help: ArgumentHelp(NSLocalizedString(
                                     "To-do item number.",
-                                    bundle: .module,
+                                    bundle:program.bundle ?? .module,
                                     comment: "Help text")))
-    private var numbers: [Int]
+    private var numbers: [Int] = []
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
                                                     "Mark item as pending.",
-                                                    bundle: .module,
+                                                    bundle:program.bundle ?? .module,
                                                     comment: "Help text")))
-    private var pending: Bool
+    private var pending = false
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
                                                     "Show less detail.",
-                                                    bundle: .module,
+                                                    bundle:program.bundle ?? .module,
                                                     comment: "Argument help")))
-    private var silent: Bool
+    private var silent = false
     
 
     func run() throws {

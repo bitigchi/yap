@@ -8,8 +8,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/apple/swift-argument-parser.git",
-            from: "0.0.1"),
-
+            from: "0.2.0")
     ],
     targets: [
         .target(
@@ -17,8 +16,12 @@ let package = Package(
             dependencies: [
                 .product(
                     name: "ArgumentParser",
-                    package: "swift-argument-parser"),
-                ]),
+                    package: "swift-argument-parser")
+                ],
+            resources: [
+                .process("Resources")
+            ]
+        ),
         .testTarget(
             name: "yapTests",
             dependencies: ["yap"]),

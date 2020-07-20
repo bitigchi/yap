@@ -6,6 +6,7 @@ PROJECT ?= yap
 REPODIR = $(shell pwd)
 BUILDDIR = $(REPODIR)/.build
 RELEASEDIR = $(BUILDDIR)/release/$(PROJECT)
+BUNDLEDIR = $(BUILDDIR)/release/$(PROJECT)_$(PROJECT).bundle
 SOURCES = $(wildcard $(srcdir)/**/*.swift)
 VERSION = 0.3
 
@@ -22,6 +23,7 @@ install: yap
 	@echo "Installing yap..."
 	install -d "$(bindir)"
 	install "$(RELEASEDIR)" "$(bindir)"
+	cp -r "$(BUNDLEDIR)" "$(bindir)"
 
 uninstall:
 	@echo "Uninstalling yap..."

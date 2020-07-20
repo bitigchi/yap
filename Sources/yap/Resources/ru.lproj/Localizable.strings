@@ -1,0 +1,146 @@
+/* Error message */
+"
+                No argument specified.
+                Add [--help] to see available arguments.
+                " = "
+                Аргумент не указан.
+                Добавьте [--help], чтобы увидеть доступные аргументы.
+                ";
+
+/* Error message */
+"
+                Number not valid.
+                Type \"yap ls\" to see the correct item number.
+                " = "
+                Номер не действителен.
+                Введите \"yap ls\", чтобы увидеть правильный номер элемента.
+                ";
+
+/* Error message */
+"
+                There are no completed items.
+                Mark some items as \"complete\" first.
+                " = "
+                Там нет завершенных пунктов.
+                Сначала отметьте некоторые пункты как \"завершенные\".
+                ";
+
+/* No to-do message */
+"
+                There is nothing on the list!
+                Being productive, eh?
+                " = "
+                В списке ничего нет!
+                Быть продуктивным, а?
+                ";
+
+/* Error message */
+"
+                You haven't added a to-do item yet.
+                Use \"yap add\" to use stdin or use
+                \"yap add <to-do>\".
+                " = "
+                Вы еще не добавили элемент списка дел.
+                Используйте \"yap add\" для использования стандартного ввода или используйте
+                \"yap add <to-do>\".
+                ";
+
+/* Command description */
+"Add due dates." = "Добавить сроки.";
+
+/* Add command description */
+"Add item to the list." = "Добавить пункт в список.";
+
+/* Confirmation message */
+"All completed items have been purged." = "Все завершенные пункты были очищены.";
+
+/* Info text */
+"All items have been purged." = "Все пункты были очищены.";
+
+/* Info text */
+"Changed state: %@" = "Измененное состояние: %@";
+
+/* Info text */
+"Complete: %@" = "Завершено: %@";
+
+/* Info text */
+"Deleted: %@" = "Удалено: %@";
+
+/* Info text */
+"Due date set to: %@" = "Срок выполнения установлен на: %@";
+
+/* Help text */
+"Due date." = "Срок выполнения.";
+
+/* Info text */
+"For: %@" = "Для: %@";
+
+/* Argument help */
+"Hide due date." = "Скрыть срок выполнения.";
+
+/* Error message */
+"Item already in the list." = "Пункт уже в списке.";
+
+/* Error message */
+"Item(s) already completed." = "Пункт(ы) уже завершен(ы).";
+
+/* Unfinished to-do header */
+"Pending items:" = "Нерешенные пункты:";
+
+/* List command description */
+"List items." = "Перечислить пункты.";
+
+/* Help text */
+"Mark item as pending." = "Отметить пункт как нерешенный.";
+
+/* Complete command description */
+"Mark item as complete." = "Отметить элемент как завершенный.";
+
+/* Info text */
+"Pending: %@" = "Не решено: %@";
+
+/* Argument help */
+"Purge both complete and pending items." = "Очистить заверенные и нерешенные пункты.";
+
+/* Purge command description */
+"Purge completed items (default)." = "Очистить завершенные элементы (по умолчанию).";
+
+/* Info text */
+"Purged: %@" = "Очищено: %@";
+
+/* Completed to-do items */
+"Recently completed:" = "Недавно завершено:";
+
+/* Command description */
+"Remove individual items." = "Удалить индивидуальные пункты.";
+
+/* Info text */
+"Removed: %@" = "Удалено: %@";
+
+/* Argument help */
+"Show both completed and pending items." = "Показать завершенные и нерешенные пункты.";
+
+/* Argument help */
+"Show completed items." = "Показать завершенные элементы (по умолчанию).";
+
+/* Argument help */
+"Show less detail." = "Показать меньше деталей.";
+
+/* Program description */
+"Simple to-do list" = "Простой список дел";
+
+/* Info text */
+"To-do added successfully!" = "Задание успешно добавлено!";
+
+/* Help text */
+"To-do item number." = "Номер задания.";
+
+/* Help text */
+"To-do text." = "Текст задания.";
+
+/* Version info */
+"version " = "версия ";
+
+/* Error message */
+"You cannot enter an empty to-do." = "Вы не можете ввести пустое задание.";
+

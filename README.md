@@ -31,7 +31,6 @@ This will build and install `yap` in your home directory. Alternatively, you can
 
 * Automatic export of items
 * Add unit tests
-* Support localisations
 
 ### Long-term
 

@@ -31,6 +31,8 @@ final class Program {
         }
     }()
     
+    let bundle = program.localizationBundle(
+        forLanguage: Locale.current.languageCode ?? "en")
     
     // MARK: Operation Methods
     func writeTodoList(_ todoList: [TodoItem]) {
@@ -93,14 +95,19 @@ final class Program {
                 if !silent {
                     let formatter = DateFormatter()
                     formatter.dateStyle = .short
-                    consoleIO.writeMessage(NSLocalizedString(
-                        """
-                        Due date set to \(formatter.string(
-                        from: dueDate)),
-                        for: \(todo.name)
-                        """,
-                        bundle: .module,
-                        comment: "Confirmation message"))
+                    let string = formatter.string(from: dueDate)
+                    consoleIO.writeMessage(
+                        String(format: NSLocalizedString(
+                                "Due date set to: %@",
+                                bundle: program.bundle ?? .module,
+                                comment: "Info text"),
+                               string))
+                    consoleIO.writeMessage(
+                        String(format: NSLocalizedString(
+                                "For: %@",
+                                bundle: program.bundle ?? .module,
+                                comment: "Info text"),
+                               todo.name))
                 }
             }
         }
@@ -115,29 +122,32 @@ final class Program {
                         writeTodoList(todoList)
                         if !silent {
                             consoleIO.writeMessage(
-                                NSLocalizedString(
-                                    "Pending: \(todo.name)",
-                                    bundle: .module,
-                                    comment: "Confirmation message"))
+                                String(format: NSLocalizedString(
+                                        "Pending: %@",
+                                        bundle: program.bundle ?? .module,
+                                        comment: "Info text"),
+                                       todo.name))
                         }
                     } else {
                         todoList[index].complete = true
                         writeTodoList(todoList)
                         if !silent {
                             consoleIO.writeMessage(
-                                NSLocalizedString(
-                                    "Complete: \(todo.name)",
-                                    bundle: .module,
-                                    comment: "Confirmation message"))
+                                String(format: NSLocalizedString(
+                                        "Complete: %@",
+                                        bundle: program.bundle ?? .module,
+                                        comment: "Info text"),
+                                       todo.name))
                         }
                     }
                 }
             }
         }
-        consoleIO.writeMessage(NSLocalizedString(
-                                "Changed state: \(numbers.description)",
-                                bundle: .module,
-                                comment: "Confirmation message"))
+        consoleIO.writeMessage(String(format: NSLocalizedString(
+                                        "Changed state: %@",
+                                        bundle: program.bundle ?? .module,
+                                        comment: "Info text"),
+                                      numbers.description))
     }
     
     func list(complete: Bool, _ noDate: Bool) {
@@ -168,17 +178,19 @@ final class Program {
         for todo in todoList {
             todoList.removeAll()
             if !silent {
-                consoleIO.writeMessage(NSLocalizedString(
-                                        "Deleted: \(todo.name)",
-                                        bundle: .module,
-                                        comment: "Deleted item"))
+                consoleIO.writeMessage(
+                    String(format: NSLocalizedString(
+                            "Purged: %@",
+                            bundle: program.bundle ?? .module,
+                            comment: "Info text"),
+                           todo.name))
             }
         }
         writeTodoList(todoList)
         consoleIO.writeMessage(NSLocalizedString(
                                 "All items have been purged.",
-                                bundle: .module,
-                                comment: "Confirmation message"))
+                                bundle:program.bundle ?? .module,
+                                comment: "Info text"))
     }
     
     func purgeCompleted(_ silent: Bool) {
@@ -188,16 +200,18 @@ final class Program {
                 todoList.remove(at: index)
                 writeTodoList(todoList)
                 if !silent {
-                    consoleIO.writeMessage(NSLocalizedString(
-                                            "Deleted: \(todo.name)",
-                                            bundle: .module,
-                                            comment: "Deleted item"))
+                    consoleIO.writeMessage(
+                        String(format: NSLocalizedString(
+                                "Deleted: %@",
+                                bundle: program.bundle ?? .module,
+                                comment: "Info text"),
+                               todo.name))
                 }
             }
         }
         consoleIO.writeMessage(NSLocalizedString(
                                 "All completed items have been purged.",
-                                bundle: .module,
+                                bundle:program.bundle ?? .module,
                                 comment: "Confirmation message"))
     }
     
@@ -208,13 +222,24 @@ final class Program {
         todoList.remove(at: number - 1)
         writeTodoList(todoList)
         if !silent {
-            consoleIO.writeMessage(NSLocalizedString(
-                                    "Removed: \(removedItemArray[0].name)",
-                                    bundle: .module,
-                                    comment: "Confirmation message"))
+            consoleIO.writeMessage(
+                String(format: NSLocalizedString(
+                        "Removed: %@",
+                        bundle: program.bundle ?? .module,
+                        comment: "Info text"),
+                       removedItemArray[0].name))
         }
         removedItemArray.removeAll()
     }
+    
+    func localizationBundle(forLanguage language: String) -> Bundle? {
+         if let path = Bundle.module.path(forResource: language,
+                                          ofType: "lproj") {
+             return Bundle(path: path)
+         } else {
+             return nil
+         }
+     }
     
     
     // MARK: Validation Methods

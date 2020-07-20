@@ -8,44 +8,41 @@ import Foundation
 
 struct List: ParsableCommand {
     static let configuration: CommandConfiguration = .init(
-        commandName: NSLocalizedString(
-            "ls",
-            bundle: .module,
-            comment: "List command"),
+        commandName: "ls",
         abstract: NSLocalizedString(
             "List items.",
-            bundle: .module,
+            bundle:program.bundle ?? .module,
             comment: "List command description"),
         shouldDisplay: true)
     
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
                                                     "Show completed items.",
-                                                    bundle: .module,
+                                                    bundle:program.bundle ?? .module,
                                                     comment: "Argument help")))
-    private var complete: Bool
+    private var complete = false
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(
             NSLocalizedString("Show both completed and pending items.",
-                              bundle: .module,
+                              bundle:program.bundle ?? .module,
                               comment: "Argument help")))
-    private var all: Bool
+    private var all = false
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
                                                     "Hide due date.",
-                                                    bundle: .module,
+                                                    bundle:program.bundle ?? .module,
                                                     comment: "Argument help")))
-    private var noDate: Bool
+    private var noDate = false
 
     
     func run() throws {
         let completeHeader = "\n" + NSLocalizedString(
             "Recently completed:",
-            bundle: .module,
+            bundle:program.bundle ?? .module,
             comment: "Completed to-do items") + "\n"
         let pendingHeader = "\n" + NSLocalizedString(
-            "Items pending:",
-            bundle: .module,
+            "Pending items:",
+            bundle:program.bundle ?? .module,
             comment: "Unfinished to-do header") + "\n"
         
         try program.verifyFileExists()
