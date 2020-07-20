@@ -99,6 +99,7 @@ final class Program {
                         from: dueDate)),
                         for: \(todo.name)
                         """,
+                        bundle: .module,
                         comment: "Confirmation message"))
                 }
             }
@@ -113,25 +114,30 @@ final class Program {
                         todoList[index].complete = false
                         writeTodoList(todoList)
                         if !silent {
-                            consoleIO.writeMessage(NSLocalizedString(
-                                "Pending: \(todo.name)",
-                                comment: "Confirmation message"))
+                            consoleIO.writeMessage(
+                                NSLocalizedString(
+                                    "Pending: \(todo.name)",
+                                    bundle: .module,
+                                    comment: "Confirmation message"))
                         }
                     } else {
                         todoList[index].complete = true
                         writeTodoList(todoList)
                         if !silent {
-                            consoleIO.writeMessage(NSLocalizedString(
-                                "Complete: \(todo.name)",
-                                comment: "Confirmation message"))
+                            consoleIO.writeMessage(
+                                NSLocalizedString(
+                                    "Complete: \(todo.name)",
+                                    bundle: .module,
+                                    comment: "Confirmation message"))
                         }
                     }
                 }
             }
         }
         consoleIO.writeMessage(NSLocalizedString(
-            "Changed state: \(numbers.description)",
-            comment: "Confirmation message"))
+                                "Changed state: \(numbers.description)",
+                                bundle: .module,
+                                comment: "Confirmation message"))
     }
     
     func list(complete: Bool, _ noDate: Bool) {
@@ -163,13 +169,16 @@ final class Program {
             todoList.removeAll()
             if !silent {
                 consoleIO.writeMessage(NSLocalizedString(
-                    "Deleted: \(todo.name)", comment: "Deleted item"))
+                                        "Deleted: \(todo.name)",
+                                        bundle: .module,
+                                        comment: "Deleted item"))
             }
         }
         writeTodoList(todoList)
         consoleIO.writeMessage(NSLocalizedString(
-                "All items have been purged.",
-                comment: "Confirmation message"))
+                                "All items have been purged.",
+                                bundle: .module,
+                                comment: "Confirmation message"))
     }
     
     func purgeCompleted(_ silent: Bool) {
@@ -180,13 +189,16 @@ final class Program {
                 writeTodoList(todoList)
                 if !silent {
                     consoleIO.writeMessage(NSLocalizedString(
-                    "Deleted: \(todo.name)", comment: "Deleted item"))
+                                            "Deleted: \(todo.name)",
+                                            bundle: .module,
+                                            comment: "Deleted item"))
                 }
             }
         }
         consoleIO.writeMessage(NSLocalizedString(
-                "All completed items have been purged.",
-                comment: "Confirmation message"))
+                                "All completed items have been purged.",
+                                bundle: .module,
+                                comment: "Confirmation message"))
     }
     
     func removeItem(_ number: Int, _ silent: Bool) {
@@ -197,8 +209,9 @@ final class Program {
         writeTodoList(todoList)
         if !silent {
             consoleIO.writeMessage(NSLocalizedString(
-                "Removed: \(removedItemArray[0].name)",
-                comment: "Confirmation message"))
+                                    "Removed: \(removedItemArray[0].name)",
+                                    bundle: .module,
+                                    comment: "Confirmation message"))
         }
         removedItemArray.removeAll()
     }

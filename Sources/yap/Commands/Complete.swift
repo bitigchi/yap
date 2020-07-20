@@ -9,22 +9,32 @@ import Foundation
 struct Complete: ParsableCommand {
     static let configuration: CommandConfiguration = .init(
         commandName: NSLocalizedString(
-            "cm", comment: "Complete command"),
+            "cm",
+            bundle: .module,
+            comment: "Complete command"),
         abstract: NSLocalizedString(
-            "Mark item(s) as complete.", comment: "Complete command description"),
+            "Mark item(s) as complete.",
+            bundle: .module,
+            comment: "Complete command description"),
         shouldDisplay: true)
     
 
     @Argument(help: ArgumentHelp(NSLocalizedString(
-        "To-do item number.", comment: "Help text")))
+                                    "To-do item number.",
+                                    bundle: .module,
+                                    comment: "Help text")))
     private var numbers: [Int]
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
-        "Mark item as pending.", comment: "Help text")))
+                                                    "Mark item as pending.",
+                                                    bundle: .module,
+                                                    comment: "Help text")))
     private var pending: Bool
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
-        "Show less detail.", comment: "Argument help")))
+                                                    "Show less detail.",
+                                                    bundle: .module,
+                                                    comment: "Argument help")))
     private var silent: Bool
     
 

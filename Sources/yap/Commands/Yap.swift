@@ -10,9 +10,13 @@ struct Yap: ParsableCommand {
     static let configuration: CommandConfiguration = .init(
         commandName: "yap",
         abstract: NSLocalizedString(
-            "Simple to-do list", comment: "Program description"),
+            "Simple to-do list",
+            bundle: .module,
+            comment: "Program description"),
         version: "yap, " +
-            NSLocalizedString("version ", comment: "Version info") + "0.3",
+            NSLocalizedString("version ",
+                              bundle: .module,
+                              comment: "Version info") + "0.3",
         shouldDisplay: true,
         subcommands: [Add.self,
                       Complete.self,

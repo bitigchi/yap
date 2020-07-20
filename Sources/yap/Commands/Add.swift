@@ -9,18 +9,26 @@ import Foundation
 struct Add: ParsableCommand {
     static let configuration: CommandConfiguration = .init(
         commandName: NSLocalizedString(
-            "add", comment: "Add command"),
+            "add",
+            bundle: .module,
+            comment: "Add command"),
         abstract: NSLocalizedString(
-            "Add item to the list.", comment: "Add command description"),
+            "Add item to the list.",
+            bundle: .module,
+            comment: "Add command description"),
         shouldDisplay: true)
     
     
     @Argument(help: ArgumentHelp(NSLocalizedString(
-            "To-do text.", comment: "Help text")))
+                                    "To-do text.",
+                                    bundle: .module,
+                                    comment: "Help text")))
     private var item: String?
     
     @Argument(help: ArgumentHelp(NSLocalizedString(
-             "Due date.", comment: "Help text")))
+                                    "Due date.",
+                                    bundle: .module,
+                                    comment: "Help text")))
      private var dueDate: String?
     
     
@@ -35,6 +43,9 @@ struct Add: ParsableCommand {
         
         program.todoList.append(todoItem)
         program.writeTodoList(program.todoList)
-        consoleIO.writeMessage("To-do added successfully!")
+        consoleIO.writeMessage(NSLocalizedString(
+                                "To-do added successfully!",
+                                bundle: .module,
+                                comment: "Info text"))
     }
 }

@@ -30,12 +30,12 @@ or year to the current date.
 
 ## Listing to-do items
 
-`yap` displays remaining to-do with item due date `yap` will assume the due date is
+`yap` displays pending to-do with item due date `yap` will assume the due date is
 today if none entered while adding.
 
 `yap -c` displays recently completed to-dos.
 
-`yap -a` displays both remaining and completed to-dos.
+`yap -a` displays both pending and completed to-dos.
 
 `yap -n` flag will not display the due date.
 

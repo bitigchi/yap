@@ -1,0 +1,169 @@
+/* Confirmation message */
+"
+                        Due date set to \(formatter.string(
+                        from: dueDate)),
+                        for: \(todo.name)
+                        " = "
+                        \(todo.name) için son tarih
+                        \(formatter.string(from: dueDate)) olarak ayarlandı.
+                        ";
+
+/* Error message */
+"
+                No argument specified.
+                Add [--help] to see available arguments.
+                " = "
+                Hiçbir değişken belirtilmedi.
+                Kullanılabilir değişkenleri görmek için [--help] ekleyin.
+                ";
+
+/* Error message */
+"
+                Number not valid.
+                Do \"yap ls\" to see the correct item number.
+                " = "
+                Numara geçerli değil.
+                Doğru öge numarasını görmek için \"yap ls\" yazın.
+                ";
+
+/* Error message */
+"
+                There are no completed items.
+                Mark some items as \"complete\" first.
+                " = "
+                Tamamlanan hiçbir öge yok.
+                Öncelikle birkaç ögeyi \"tamam\" olarak imleyin.
+                ";
+
+/* No to-do message */
+"
+                There is nothing on the list!
+                Being productive, eh?
+                " = "
+                Listede hiçbir öge yok!
+                Üretkeniz bakıyorum...
+                ";
+
+/* Error message */
+"
+                You haven't added a to-do item yet.
+                Use \"yap add\" to use stdin or use
+                \"yap add <to-do>\".
+                " = "
+                Henüz bir yapılacak öge eklemediniz. stdin kullanarak
+                eklemek için \"yap add\" veya komut kullanarak eklemek
+                için \"yap ekle <yapılacak>\" kullanın.
+                ";
+
+/* Add command */
+"add" = "ekle";
+
+/* Command description */
+"Add due dates." = "Son tarih ekle.";
+
+/* Add command description */
+"Add item to the list." = "Listeye öge ekle.";
+
+/* Confirmation message */
+"All completed items have been purged." = "Tüm tamamlanan ögeler kaldırıldı.";
+
+/* Confirmation message */
+"All items have been purged." = "Tüm ögeler kaldırıldı.";
+
+/* Confirmation message */
+"Changed state: \(numbers.description)" = "Durum değişti: \(numbers.description)";
+
+/* Complete command */
+"cm" = "tm";
+
+/* Confirmation message */
+"Complete: \(todo.name)" = "Tamam: \(todo.name)";
+
+/* Deleted item */
+"Deleted: \(todo.name)" = "Silindi: \(todo.name)";
+
+/* Due command */
+"due" = "son";
+
+/* Help text */
+"Due date." = "Son tarih.";
+
+/* Argument help */
+"Hide due date." = "Son tarihi gizle.";
+
+/* Error message */
+"Item already in the list." = "Öge zaten listede.";
+
+/* Error message */
+"Item(s) already completed." = "Öge(ler) zaten tamamlandı.";
+
+/* Unfinished to-do header */
+"Items pending:" = "Bekleyen ögeler:";
+
+/* List command description */
+"List items." = "Ögeleri listele.";
+
+/* List command */
+"ls" = "ls";
+
+/* Help text */
+"Mark item as pending." = "Ögeleri bekleyen olarak imle.";
+
+/* Complete command description */
+"Mark item(s) as complete." = "Ögeleri tamam olarak imle.";
+
+/* Confirmation message */
+"Pending: \(todo.name)" = "Bekliyor: \(todo.name)";
+
+/* Purge command */
+"purge" = "sil";
+
+/* Argument help */
+"Purge both complete and pending items." = "Hem tamamlanan hem bekleyen ögeleri sil.";
+
+/* Purge command description */
+"Purge everything in a list." = "Bir listedeki her şeyi sil.";
+
+/* Completed to-do items */
+"Recently completed:" = "En son tamamlananlar:";
+
+/* Command description */
+"Remove individual items." = "Ögeleri teker teker kaldır.";
+
+/* Confirmation message */
+"Removed: \(removedItemArray[0].name)" = "Kaldırıldı: \(removedItemArray[0].name)";
+
+/* Remove command */
+"rm" = "kld";
+
+/* Argument help */
+"Show both completed and pending items." = "Hem tamamlanan hem bekleyen ögeleri göster.";
+
+/* Argument help */
+"Show completed items." = "Tamamlanan ögeleri göster.";
+
+/* Argument help */
+"Show less detail." = "Daha az ayrıntı göster.";
+
+/* Program description */
+"Simple to-do list" = "Yalın bir yapılacaklar listesi";
+
+/* Info text */
+"To-do added successfully!" = "Yapılacak başarıyla eklendi!";
+
+/* Help text */
+"To-do item number" = "Yapılacak öge numarası";
+
+/* Help text */
+"To-do item number." = "Yapılacak öge numarası.";
+
+/* Help text */
+"To-do text." = "Yapılacak metni.";
+
+/* Version info */
+"version " = "sürüm ";
+
+/* Error message */
+"You cannot enter an empty to-do." = "Boş bir yapılacak öge giremezsiniz.";
+
+

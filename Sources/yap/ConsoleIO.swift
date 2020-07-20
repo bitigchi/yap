@@ -43,16 +43,19 @@ extension ValidationError: LocalizedError {
         case .alreadyInList:
             return NSLocalizedString(
                 "Item already in the list.",
+                bundle: .module,
                 comment: "Error message")
             
         case .alreadyCompleted:
             return NSLocalizedString(
                 "Item(s) already completed.",
+                bundle: .module,
                 comment: "Error message")
             
         case .emptyTodo:
             return NSLocalizedString(
                 "You cannot enter an empty to-do.",
+                bundle: .module,
                 comment: "Error message")
             
         case .emptyList:
@@ -61,23 +64,26 @@ extension ValidationError: LocalizedError {
                 There is nothing on the list!
                 Being productive, eh?
                 """,
+                bundle: .module,
                 comment: "No to-do message")
             
         case .notValid:
             return NSLocalizedString(
                 """
                 Number not valid.
-                Do \"yap list\" to see the correct item number.
+                Do \"yap ls\" to see the correct item number.
                 """,
+                bundle: .module,
                 comment: "Error message")
             
         case .noFile:
             return NSLocalizedString(
                 """
                 You haven't added a to-do item yet.
-                Use "yap add" to use stdin or use
-                "yap add <to-do>".
+                Use \"yap add\" to use stdin or use
+                \"yap add <to-do>\".
                 """,
+                bundle: .module,
                 comment: "Error message")
             
         case .noCompletedItem:
@@ -86,6 +92,7 @@ extension ValidationError: LocalizedError {
                 There are no completed items.
                 Mark some items as \"complete\" first.
                 """,
+                bundle: .module,
                 comment: "Error message")
 
         case .noArgument:
@@ -94,6 +101,7 @@ extension ValidationError: LocalizedError {
                 No argument specified.
                 Add [--help] to see available arguments.
                 """,
+                bundle: .module,
                 comment: "Error message")
         }
     }
