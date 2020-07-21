@@ -15,7 +15,7 @@ struct Yap: ParsableCommand {
             comment: "Program description"),
         version: "yap, " +
             NSLocalizedString("version ",
-                              bundle:program.bundle ?? .module,
+                              bundle: program.bundle ?? .module,
                               comment: "Version info") + "0.3",
         shouldDisplay: true,
         subcommands: [Add.self,

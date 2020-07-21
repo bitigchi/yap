@@ -11,26 +11,26 @@ struct List: ParsableCommand {
         commandName: "ls",
         abstract: NSLocalizedString(
             "List items.",
-            bundle:program.bundle ?? .module,
+            bundle: program.bundle ?? .module,
             comment: "List command description"),
         shouldDisplay: true)
     
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
                                                     "Show completed items.",
-                                                    bundle:program.bundle ?? .module,
+                                                    bundle: program.bundle ?? .module,
                                                     comment: "Argument help")))
     private var complete = false
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(
             NSLocalizedString("Show both completed and pending items.",
-                              bundle:program.bundle ?? .module,
+                              bundle: program.bundle ?? .module,
                               comment: "Argument help")))
     private var all = false
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
                                                     "Hide due date.",
-                                                    bundle:program.bundle ?? .module,
+                                                    bundle: program.bundle ?? .module,
                                                     comment: "Argument help")))
     private var noDate = false
 
@@ -38,11 +38,11 @@ struct List: ParsableCommand {
     func run() throws {
         let completeHeader = "\n" + NSLocalizedString(
             "Recently completed:",
-            bundle:program.bundle ?? .module,
+            bundle: program.bundle ?? .module,
             comment: "Completed to-do items") + "\n"
         let pendingHeader = "\n" + NSLocalizedString(
             "Pending items:",
-            bundle:program.bundle ?? .module,
+            bundle: program.bundle ?? .module,
             comment: "Unfinished to-do header") + "\n"
         
         try program.verifyFileExists()

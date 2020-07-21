@@ -189,7 +189,7 @@ final class Program {
         writeTodoList(todoList)
         consoleIO.writeMessage(NSLocalizedString(
                                 "All items have been purged.",
-                                bundle:program.bundle ?? .module,
+                                bundle: program.bundle ?? .module,
                                 comment: "Info text"))
     }
     
@@ -211,7 +211,7 @@ final class Program {
         }
         consoleIO.writeMessage(NSLocalizedString(
                                 "All completed items have been purged.",
-                                bundle:program.bundle ?? .module,
+                                bundle: program.bundle ?? .module,
                                 comment: "Confirmation message"))
     }
     

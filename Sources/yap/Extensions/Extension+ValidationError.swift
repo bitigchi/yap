@@ -24,19 +24,19 @@ extension ValidationError: LocalizedError {
         case .alreadyInList:
             return NSLocalizedString(
                 "Item already in the list.",
-                bundle:program.bundle ?? .module,
+                bundle: program.bundle ?? .module,
                 comment: "Error message")
             
         case .alreadyCompleted:
             return NSLocalizedString(
                 "Item(s) already completed.",
-                bundle:program.bundle ?? .module,
+                bundle: program.bundle ?? .module,
                 comment: "Error message")
             
         case .emptyTodo:
             return NSLocalizedString(
                 "You cannot enter an empty to-do.",
-                bundle:program.bundle ?? .module,
+                bundle: program.bundle ?? .module,
                 comment: "Error message")
             
         case .emptyList:
@@ -45,7 +45,7 @@ extension ValidationError: LocalizedError {
                 There is nothing on the list!
                 Being productive, eh?
                 """,
-                bundle:program.bundle ?? .module,
+                bundle: program.bundle ?? .module,
                 comment: "No to-do message")
             
         case .notValid:
@@ -54,7 +54,7 @@ extension ValidationError: LocalizedError {
                 Number not valid.
                 Type \"yap ls\" to see the correct item number.
                 """,
-                bundle:program.bundle ?? .module,
+                bundle: program.bundle ?? .module,
                 comment: "Error message")
             
         case .noFile:
@@ -64,7 +64,7 @@ extension ValidationError: LocalizedError {
                 Use \"yap add\" to use stdin or use
                 \"yap add <to-do>\".
                 """,
-                bundle:program.bundle ?? .module,
+                bundle: program.bundle ?? .module,
                 comment: "Error message")
             
         case .noCompletedItem:
@@ -73,7 +73,7 @@ extension ValidationError: LocalizedError {
                 There are no completed items.
                 Mark some items as \"complete\" first.
                 """,
-                bundle:program.bundle ?? .module,
+                bundle: program.bundle ?? .module,
                 comment: "Error message")
 
         case .noArgument:
@@ -82,7 +82,7 @@ extension ValidationError: LocalizedError {
                 No argument specified.
                 Add [--help] to see available arguments.
                 """,
-                bundle:program.bundle ?? .module,
+                bundle: program.bundle ?? .module,
                 comment: "Error message")
         }
     }

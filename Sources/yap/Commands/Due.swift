@@ -11,26 +11,26 @@ struct Due: ParsableCommand {
         commandName: "due",
         abstract: NSLocalizedString(
             "Add due dates.",
-            bundle:program.bundle ?? .module,
+            bundle: program.bundle ?? .module,
             comment: "Command description"),
         shouldDisplay: true)
     
     
     @Argument(help: ArgumentHelp(NSLocalizedString(
                                     "To-do item number.",
-                                    bundle:program.bundle ?? .module,
+                                    bundle: program.bundle ?? .module,
                                     comment: "Help text")))
     private var number: Int
     
     @Argument(help: ArgumentHelp(NSLocalizedString(
                                     "Due date.",
-                                    bundle:program.bundle ?? .module,
+                                    bundle: program.bundle ?? .module,
                                     comment: "Help text")))
     private var dateStr: String
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
                                                     "Show less detail.",
-                                                    bundle:program.bundle ?? .module,
+                                                    bundle: program.bundle ?? .module,
                                                     comment: "Argument help")))
     private var silent = false
     

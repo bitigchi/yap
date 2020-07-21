@@ -11,20 +11,20 @@ struct Purge: ParsableCommand {
         commandName: "purge",
         abstract: NSLocalizedString(
             "Purge completed items (default).",
-            bundle:program.bundle ?? .module,
+            bundle: program.bundle ?? .module,
             comment: "Purge command description"),
         shouldDisplay: true)
     
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(
             NSLocalizedString("Purge both complete and pending items.",
-                              bundle:program.bundle ?? .module,
+                              bundle: program.bundle ?? .module,
                               comment: "Argument help")))
     private var all = false
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
                                                     "Show less detail.",
-                                                    bundle:program.bundle ?? .module,
+                                                    bundle: program.bundle ?? .module,
                                                     comment: "Argument help")))
     private var silent = false
     

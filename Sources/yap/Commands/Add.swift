@@ -11,20 +11,20 @@ struct Add: ParsableCommand {
         commandName: "add",
         abstract: NSLocalizedString(
             "Add item to the list.",
-            bundle:program.bundle ?? .module,
+            bundle: program.bundle ?? .module,
             comment: "Add command description"),
         shouldDisplay: true)
     
     
     @Argument(help: ArgumentHelp(NSLocalizedString(
                                     "To-do text.",
-                                    bundle:program.bundle ?? .module,
+                                    bundle: program.bundle ?? .module,
                                     comment: "Help text")))
     private var item: String?
     
     @Argument(help: ArgumentHelp(NSLocalizedString(
                                     "Due date.",
-                                    bundle:program.bundle ?? .module,
+                                    bundle: program.bundle ?? .module,
                                     comment: "Help text")))
      private var dueDate: String?
     
@@ -42,7 +42,7 @@ struct Add: ParsableCommand {
         program.writeTodoList(program.todoList)
         consoleIO.writeMessage(NSLocalizedString(
                                 "To-do added successfully!",
-                                bundle:program.bundle ?? .module,
+                                bundle: program.bundle ?? .module,
                                 comment: "Info text"))
     }
 }
