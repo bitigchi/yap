@@ -40,9 +40,9 @@
                 Use \"yap add\" to use stdin or use
                 \"yap add <to-do>\".
                 " = "
-                Вы еще не добавили элемент списка дел.
-                Используйте \"yap add\" для использования стандартного ввода или используйте
-                \"yap add <to-do>\".
+                Вы еще не добавили элемент списка дел. Используйте
+                \"yap add\" для использования стандартного ввода или
+                используйте \"yap add <to-do>\".
                 ";
 
 /* Command description */
@@ -130,17 +130,17 @@
 "Simple to-do list" = "Простой список дел";
 
 /* Info text */
-"To-do added successfully!" = "Задание успешно добавлено!";
+"To-do added successfully!" = "Пункт успешно добавлен!";
 
 /* Help text */
-"To-do item number." = "Номер задания.";
+"To-do item number." = "Номер пункта.";
 
 /* Help text */
-"To-do text." = "Текст задания.";
+"To-do text." = "Текст пункта.";
 
 /* Version info */
 "version " = "версия ";
 
 /* Error message */
-"You cannot enter an empty to-do." = "Вы не можете ввести пустое задание.";
+"You cannot enter an empty to-do." = "Вы не можете ввести пустой пункт.";
 
