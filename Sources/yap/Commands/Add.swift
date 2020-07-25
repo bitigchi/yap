@@ -9,23 +9,22 @@ import Foundation
 struct Add: ParsableCommand {
     static let configuration: CommandConfiguration = .init(
         commandName: "add",
-        abstract: NSLocalizedString(
-            "Add item to the list.",
-            bundle: program.bundle ?? .module,
-            comment: "Add command description"),
+        abstract: NSLocalizedString("Add item to the list.",
+                                    bundle: program.bundle ?? .module,
+                                    comment: "Add command description"),
         shouldDisplay: true)
     
     
-    @Argument(help: ArgumentHelp(NSLocalizedString(
-                                    "To-do text.",
-                                    bundle: program.bundle ?? .module,
-                                    comment: "Help text")))
+    @Argument(help: ArgumentHelp(
+                NSLocalizedString("To-do text.",
+                                  bundle: program.bundle ?? .module,
+                                  comment: "Help text")))
     private var item: String?
     
-    @Argument(help: ArgumentHelp(NSLocalizedString(
-                                    "Due date.",
-                                    bundle: program.bundle ?? .module,
-                                    comment: "Help text")))
+    @Argument(help: ArgumentHelp(
+                NSLocalizedString("Due date.",
+                                  bundle: program.bundle ?? .module,
+                                  comment: "Help text")))
      private var dueDate: String?
     
     

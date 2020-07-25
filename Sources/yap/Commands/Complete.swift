@@ -9,29 +9,28 @@ import Foundation
 struct Complete: ParsableCommand {
     static let configuration: CommandConfiguration = .init(
         commandName: "cm",
-        abstract: NSLocalizedString(
-            "Mark item as complete.",
-            bundle: program.bundle ?? .module,
-            comment: "Complete command description"),
+        abstract: NSLocalizedString("Mark item as complete.",
+                                    bundle: program.bundle ?? .module,
+                                    comment: "Complete command description"),
         shouldDisplay: true)
     
 
-    @Argument(help: ArgumentHelp(NSLocalizedString(
-                                    "To-do item number.",
-                                    bundle: program.bundle ?? .module,
-                                    comment: "Help text")))
+    @Argument(help: ArgumentHelp(
+                NSLocalizedString("To-do item number.",
+                                  bundle: program.bundle ?? .module,
+                                  comment: "Help text")))
     private var numbers: [Int] = []
     
-    @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
-                                                    "Mark item as pending.",
-                                                    bundle: program.bundle ?? .module,
-                                                    comment: "Help text")))
+    @Flag(name: .shortAndLong, help: ArgumentHelp(
+            NSLocalizedString("Mark item as pending.",
+                              bundle: program.bundle ?? .module,
+                              comment: "Help text")))
     private var pending = false
     
-    @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
-                                                    "Show less detail.",
-                                                    bundle: program.bundle ?? .module,
-                                                    comment: "Argument help")))
+    @Flag(name: .shortAndLong, help: ArgumentHelp(
+            NSLocalizedString("Show less detail.",
+                              bundle: program.bundle ?? .module,
+                              comment: "Argument help")))
     private var silent = false
     
 

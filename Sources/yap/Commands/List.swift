@@ -9,17 +9,16 @@ import Foundation
 struct List: ParsableCommand {
     static let configuration: CommandConfiguration = .init(
         commandName: "ls",
-        abstract: NSLocalizedString(
-            "List items.",
-            bundle: program.bundle ?? .module,
-            comment: "List command description"),
+        abstract: NSLocalizedString("List items.",
+                                    bundle: program.bundle ?? .module,
+                                    comment: "List command description"),
         shouldDisplay: true)
     
     
-    @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
-                                                    "Show completed items.",
-                                                    bundle: program.bundle ?? .module,
-                                                    comment: "Argument help")))
+    @Flag(name: .shortAndLong, help: ArgumentHelp(
+            NSLocalizedString("Show completed items.",
+                              bundle: program.bundle ?? .module,
+                              comment: "Argument help")))
     private var complete = false
     
     @Flag(name: .shortAndLong, help: ArgumentHelp(
@@ -28,10 +27,10 @@ struct List: ParsableCommand {
                               comment: "Argument help")))
     private var all = false
     
-    @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
-                                                    "Hide due date.",
-                                                    bundle: program.bundle ?? .module,
-                                                    comment: "Argument help")))
+    @Flag(name: .shortAndLong, help: ArgumentHelp(
+            NSLocalizedString("Hide due date.",
+                              bundle: program.bundle ?? .module,
+                              comment: "Argument help")))
     private var noDate = false
 
     

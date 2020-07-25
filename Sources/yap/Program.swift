@@ -22,6 +22,7 @@ final class Program {
     lazy var whoKnowsWhen = DateComponents(year: now.year! + 10,
                                            month: now.month,
                                            day: now.day)
+    
     lazy var todayDate = Calendar.current.date(from: now)!
     lazy var tomorrowDate = Calendar.current.date(from: tomorrow)!
     lazy var nextWeekDate = Calendar.current.date(from: nextWeek)!
@@ -65,6 +66,7 @@ final class Program {
              return nil
          }
      }
+    
     
     // MARK: Operation Methods
     func writeTodoList(_ todoList: [TodoItem]) {

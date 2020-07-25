@@ -9,10 +9,9 @@ import Foundation
 struct Purge: ParsableCommand {
     static let configuration: CommandConfiguration = .init(
         commandName: "purge",
-        abstract: NSLocalizedString(
-            "Purge completed items (default).",
-            bundle: program.bundle ?? .module,
-            comment: "Purge command description"),
+        abstract: NSLocalizedString("Purge completed items (default).",
+                                    bundle: program.bundle ?? .module,
+                                    comment: "Purge command description"),
         shouldDisplay: true)
     
     
@@ -22,10 +21,10 @@ struct Purge: ParsableCommand {
                               comment: "Argument help")))
     private var all = false
     
-    @Flag(name: .shortAndLong, help: ArgumentHelp(NSLocalizedString(
-                                                    "Show less detail.",
-                                                    bundle: program.bundle ?? .module,
-                                                    comment: "Argument help")))
+    @Flag(name: .shortAndLong, help: ArgumentHelp(
+            NSLocalizedString("Show less detail.",
+                              bundle: program.bundle ?? .module,
+                              comment: "Argument help")))
     private var silent = false
     
     
