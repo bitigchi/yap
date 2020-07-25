@@ -7,11 +7,11 @@ import Foundation
 
 final class Program {
     lazy var now = Calendar.current.dateComponents(in: .current, from: Date())
-    lazy var tomorrow = DateComponents(day: now.day! + 1)
-    lazy var nextWeek = DateComponents(day: now.day! + 7)
-    lazy var nextMonth = DateComponents(month: now.month! + 1)
-    lazy var nextYear = DateComponents(year: now.year! + 1)
-    lazy var whoKnowsWhen = DateComponents(year: now.year! + 10)
+    lazy var tomorrow = DateComponents(year: now.year, month: now.month, day: now.day! + 1)
+    lazy var nextWeek = DateComponents(year: now.year, month: now.month, day: now.day! + 7)
+    lazy var nextMonth = DateComponents(year: now.year, month: now.month! + 1, day: now.day)
+    lazy var nextYear = DateComponents(year: now.year! + 1, month: now.month, day: now.day)
+    lazy var whoKnowsWhen = DateComponents(year: now.year! + 10, month: now.month, day: now.day)
     lazy var todayDate = Calendar.current.date(from: now)!
     lazy var tomorrowDate = Calendar.current.date(from: tomorrow)!
     lazy var nextWeekDate = Calendar.current.date(from: nextWeek)!
