@@ -6,6 +6,19 @@
 import Foundation
 
 final class Program {
+    lazy var now = Calendar.current.dateComponents(in: .current, from: Date())
+    lazy var tomorrow = DateComponents(day: now.day! + 1)
+    lazy var nextWeek = DateComponents(day: now.day! + 7)
+    lazy var nextMonth = DateComponents(month: now.month! + 1)
+    lazy var nextYear = DateComponents(year: now.year! + 1)
+    lazy var whoKnowsWhen = DateComponents(year: now.year! + 10)
+    lazy var todayDate = Calendar.current.date(from: now)!
+    lazy var tomorrowDate = Calendar.current.date(from: tomorrow)!
+    lazy var nextWeekDate = Calendar.current.date(from: nextWeek)!
+    lazy var nextMonthDate = Calendar.current.date(from: nextMonth)!
+    lazy var nextYearDate = Calendar.current.date(from: nextYear)!
+    lazy var whoKnowsWhenDate = Calendar.current.date(from: whoKnowsWhen)!
+
     let fileURL = try! FileManager.default
         .url(for: .applicationSupportDirectory,
              in: .userDomainMask,
@@ -47,37 +60,24 @@ final class Program {
     }
     
     func dateParser(_ date: String) -> Date {
+        var dateLine = ""
         var finalDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.locale = Locale.current
-                
-        let now = Calendar.current.dateComponents(in: .current, from: Date())
-        let tomorrow = DateComponents(
-            year: now.year, month: now.month, day: now.day! + 1)
-        let nextWeek = DateComponents(
-            year: now.year, month: now.month, day: now.day! + 7)
-        let nextMonth = DateComponents(
-            year: now.year, month: now.month! + 1, day: now.day)
-        let nextYear = DateComponents(
-            year: now.year! + 1, month: now.month, day: now.day)
         
-        var dateLine = ""
-        
-        if date == "tomorrow" {
-            let tomorrowDate = Calendar.current.date(from: tomorrow)!
+        if date == "today" {
+            dateLine = dateFormatter.string(from: todayDate)
+        } else if date == "tomorrow" {
             dateLine = dateFormatter.string(from: tomorrowDate)
         } else if date == "nextweek" {
-            let nextWeekDate = Calendar.current.date(from: nextWeek)!
             dateLine = dateFormatter.string(from: nextWeekDate)
         } else if date == "nextmonth" {
-            let nextMonthDate = Calendar.current.date(from: nextMonth)!
             dateLine = dateFormatter.string(from: nextMonthDate)
         } else if date == "nextyear" {
-            let nextYearDate = Calendar.current.date(from: nextYear)!
             dateLine = dateFormatter.string(from: nextYearDate)
         } else {
-            dateLine = date
+            dateLine = dateFormatter.string(from: whoKnowsWhenDate)
         }
         
         if let dateFormat = dateFormatter.date(from: dateLine) {
@@ -152,14 +152,24 @@ final class Program {
     
     func list(complete: Bool, _ noDate: Bool) {
         for (index, todo) in todoList.enumerated() {
-            
             func printItem() {
                 let formatter = DateFormatter()
                 formatter.dateStyle = .short
-                let dueDate = formatter.string(from: todo.dueDate)
-                let item = "\(index + 1)" + " - " + "\(todo.name)"
-                let itemWDate = "\(index + 1)" + " <" + "\(dueDate)" + "> "
-                    + "\(todo.name)"
+                let nextYearDate = Calendar.current.date(from: nextYear)!
+                var dueDate = ""
+                
+                if todo.dueDate > nextYearDate {
+                    dueDate = NSLocalizedString("no date",
+                                                bundle: bundle ?? .module,
+                                                comment: "No date entered")
+                } else {
+                    dueDate = formatter.string(from: todo.dueDate)
+                }
+
+                let item = "\(index + 1). " + "\(todo.name)"
+                let itemWDate = "\(index + 1)." +
+                    " <\(dueDate)> " +
+                    "\(todo.name)"
                 
                 if noDate {
                     consoleIO.writeMessage(item)
