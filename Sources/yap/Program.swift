@@ -80,10 +80,10 @@ final class Program {
             dateLine = date
         }
         
-         if let dateFormat = dateFormatter.date(from: dateLine) {
+        if let dateFormat = dateFormatter.date(from: dateLine) {
              finalDate = dateFormat
-         }
-         return finalDate
+        }
+        return finalDate
      }
     
     func markDue(_ number: Int, _ dateStr: String, _ silent: Bool) {
@@ -99,13 +99,13 @@ final class Program {
                     consoleIO.writeMessage(
                         String(format: NSLocalizedString(
                                 "Due date set to: %@",
-                                bundle: program.bundle ?? .module,
+                                bundle: bundle ?? .module,
                                 comment: "Info text"),
                                string))
                     consoleIO.writeMessage(
                         String(format: NSLocalizedString(
                                 "For: %@",
-                                bundle: program.bundle ?? .module,
+                                bundle: bundle ?? .module,
                                 comment: "Info text"),
                                todo.name))
                 }
@@ -124,7 +124,7 @@ final class Program {
                             consoleIO.writeMessage(
                                 String(format: NSLocalizedString(
                                         "Pending: %@",
-                                        bundle: program.bundle ?? .module,
+                                        bundle: bundle ?? .module,
                                         comment: "Info text"),
                                        todo.name))
                         }
@@ -135,7 +135,7 @@ final class Program {
                             consoleIO.writeMessage(
                                 String(format: NSLocalizedString(
                                         "Complete: %@",
-                                        bundle: program.bundle ?? .module,
+                                        bundle: bundle ?? .module,
                                         comment: "Info text"),
                                        todo.name))
                         }
@@ -145,7 +145,7 @@ final class Program {
         }
         consoleIO.writeMessage(String(format: NSLocalizedString(
                                         "Changed state: %@",
-                                        bundle: program.bundle ?? .module,
+                                        bundle: bundle ?? .module,
                                         comment: "Info text"),
                                       numbers.description))
     }
@@ -181,7 +181,7 @@ final class Program {
                 consoleIO.writeMessage(
                     String(format: NSLocalizedString(
                             "Purged: %@",
-                            bundle: program.bundle ?? .module,
+                            bundle: bundle ?? .module,
                             comment: "Info text"),
                            todo.name))
             }
@@ -189,7 +189,7 @@ final class Program {
         writeTodoList(todoList)
         consoleIO.writeMessage(NSLocalizedString(
                                 "All items have been purged.",
-                                bundle: program.bundle ?? .module,
+                                bundle: bundle ?? .module,
                                 comment: "Info text"))
     }
     
@@ -203,7 +203,7 @@ final class Program {
                     consoleIO.writeMessage(
                         String(format: NSLocalizedString(
                                 "Deleted: %@",
-                                bundle: program.bundle ?? .module,
+                                bundle: bundle ?? .module,
                                 comment: "Info text"),
                                todo.name))
                 }
@@ -211,7 +211,7 @@ final class Program {
         }
         consoleIO.writeMessage(NSLocalizedString(
                                 "All completed items have been purged.",
-                                bundle: program.bundle ?? .module,
+                                bundle: bundle ?? .module,
                                 comment: "Confirmation message"))
     }
     
@@ -225,7 +225,7 @@ final class Program {
             consoleIO.writeMessage(
                 String(format: NSLocalizedString(
                         "Removed: %@",
-                        bundle: program.bundle ?? .module,
+                        bundle: bundle ?? .module,
                         comment: "Info text"),
                        removedItemArray[0].name))
         }
