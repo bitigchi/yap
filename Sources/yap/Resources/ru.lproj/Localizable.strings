@@ -1,49 +1,34 @@
 /* Error message */
-"
-                No argument specified.
-                Add [--help] to see available arguments.
-                " = "
-                Аргумент не указан.
-                Добавьте [--help], чтобы увидеть доступные аргументы.
-                ";
+"No argument specified.
+Add [--help] to see available arguments." = "Аргумент не указан.
+Добавьте [--help], чтобы увидеть доступные аргументы.
+";
 
 /* Error message */
-"
-                Number not valid.
-                Type \"yap ls\" to see the correct item number.
-                " = "
-                Номер не действителен.
-                Введите \"yap ls\", чтобы увидеть правильный номер элемента.
-                ";
+"Number not valid.
+Type \"yap ls\" to see the correct item number." = "Номер не действителен.
+Введите \"yap ls\", чтобы увидеть правильный номер элемента.
+";
 
 /* Error message */
-"
-                There are no completed items.
-                Mark some items as \"complete\" first.
-                " = "
-                Там нет завершенных пунктов.
-                Сначала отметьте некоторые пункты как \"завершенные\".
-                ";
+"There are no completed items.
+Mark some items as \"complete\" first." = "Там нет завершенных пунктов.
+Сначала отметьте некоторые пункты как \"завершенные\".
+";
 
 /* No to-do message */
-"
-                There is nothing on the list!
-                Being productive, eh?
-                " = "
-                В списке ничего нет!
-                Быть продуктивным, а?
-                ";
+"There is nothing on the list!
+Being productive, eh?" = "В списке ничего нет!
+Быть продуктивным, а?
+";
 
 /* Error message */
-"
-                You haven't added a to-do item yet.
-                Use \"yap add\" to use stdin or use
-                \"yap add <to-do>\".
-                " = "
-                Вы еще не добавили элемент списка дел. Используйте
-                \"yap add\" для использования стандартного ввода или
-                используйте \"yap add <to-do>\".
-                ";
+"You haven't added a to-do item yet.
+Use \"yap add\" to use stdin or use
+\"yap add <to-do>\"." = "Вы еще не добавили элемент списка дел. Используйте
+\"yap add\" для использования стандартного ввода или
+используйте \"yap add <to-do>\".
+";
 
 /* Command description */
 "Add due dates." = "Добавить сроки.";

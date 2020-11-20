@@ -38,11 +38,11 @@ struct List: ParsableCommand {
         let completeHeader = "\n" + NSLocalizedString(
             "Recently completed:",
             bundle: program.bundle ?? .module,
-            comment: "Completed to-do items") + "\n"
+            comment: "Completed to-do items")
         let pendingHeader = "\n" + NSLocalizedString(
             "Pending items:",
             bundle: program.bundle ?? .module,
-            comment: "Unfinished to-do header") + "\n"
+            comment: "Unfinished to-do header")
         
         try program.verifyFileExists()
         try program.checkEmptyList()
